@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*main - main block*/
+/*using put function*/
 
 int main(void)
 {
