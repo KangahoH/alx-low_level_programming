@@ -1,5 +1,8 @@
 #include<stdio.h>
-/*prints sizes of various types*/
+/**
+** main - main block
+** Return: 0
+**/
 
 int main(void)
 {
