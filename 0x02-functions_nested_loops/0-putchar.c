@@ -2,10 +2,10 @@
 
 /**
  ** main - Print "_putchar" followed by a new line.
- ** 
+ **
  **
  ** Return: On success 0.
- ** 
+ **
  **/
 int main(void)
 {
