@@ -1,71 +1,47 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * exponent - x to the power of y
- * @x: base number
- * @y: exponent
- * Description: calcuates x^y
- * Return: x^y
- *
+ * print_number - Function that prints an integer.
+ * @n: int type number
+ * Description: Can only use _putchar to print.
  */
-
-int exponent(int x, int y)
+void print_number(int n)
 {
-	int power;
+	long m; /* power of 10 */
+	int c; /* boolean check */
+	long num; /* convert int to long */
 
-	power = x;
-
-	if (x == 0)
-		return (0);
-	if (y == 0)
-		return (1);
-
-	while (y >= 2)
+	num = n;
+	/* negatives */
+	if (num < 0)
 	{
-		power  = power * x;
-		y--;
-	}
-	return (power);
-}
-
-/**
- * print_number - print an int using only _putchar
- * @number: int to be printed by function
- *
- * Return: nothing
- */
-
-void print_number(int number)
-{
-	int size, digit;
-	long counter, sign;
-
-	sign = 1;
-	digit = 0;
-	size = 1;
-	counter = number;
-
-	if (number < 0)
-	{
+		num *= -1;
 		_putchar('-');
-		sign = -1;
-		counter *= sign;
 	}
 
-	for (; counter >= 10; size++)
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
 	{
-		counter = counter / 10;
+		if (num / (m * 10) > 0)
+			m *= 10;
+		else
+			c = 0;
 	}
 
-	counter = sign * (long)number;
-
-	while (size >= 2)
+	/* count down */
+	while (num >= 0)
 	{
-		digit = (counter / exponent(10, size - 1));
-		_putchar(digit + '0');
-		counter = counter % exponent(10, size - 1);
-		size--;
+		if (m == 1)
+		{
+			_putchar(num % 10 + '0');
+			num = -1;
+		}
+		else
+		{
+			_putchar((num / m % 10) + '0');
+			m /= 10;
+		}
 	}
-	_putchar(counter % 10 + '0');
 }
